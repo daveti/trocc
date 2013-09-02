@@ -1,0 +1,93 @@
+CLIENT:
+
+root@arpsec01:~/tpm/rpc# ./rpc_oc
+Into: sendTCSDPacket()
+Into send_init()
+send_init(): sending TSP packet to host 128.223.6.113
+send_init(): connecting to 128.223.6.113
+send_init(): socket sending - hte->comm.hdr.packet_size [28]
+RPC_OpenContext_TP succeeded, tpm_version [2], tcsContext [0xa07adb06]
+hte debug:
+next = (nil)
+tspContext = 0x0
+tcsContext = 0xa07adb06
+hostname = 128.223.6.113
+type = 0
+socket = 3
+Into: sendTCSDPacket()
+RPC_CloseContext_TP succeeded
+root@arpsec01:~/tpm/rpc#
+
+SERVER:
+
+daveti: Into tcsd_thread_create() with hostname [dyna6-62.cs.uoregon.edu]
+daveti: Into tcsd_thread_run()
+daveti: Into while(data->comm.buf)
+daveti: Into recv_from_socket() with size [28]
+daveti: Into while(recv_total<size) with recv_total [0]
+daveti: total_recv_size 28, buf_size 1024, recd_so_far 28
+daveti: rx'd a packet
+daveti: Platform header ---------------------
+data->comm.buf_size = 1024
+sizeof(data->comm.hdr) = 28
+data->comm.hdr.packet_size = 28
+data->comm.hdr.u.ordinal = 1
+data->comm.hdr.num_parms = 0
+data->comm.hdr.type_size = 0
+data->comm.hdr.type_offset = 28
+data->comm.hdr.parm_size = 0
+data->comm.hdr.parm_offset = 28
+daveti: Platform header ---------------------
+daveti: Dispatching ordinal 1 (OpenContext)
+TCSD TCS Accepted OpenContext operation from dyna6-62.cs.uoregon.edu
+daveti: Sending back ---------------------
+send_size = 38
+sizeof(data->comm.hdr) = 28
+data->comm.hdr.packet_size = 38
+data->comm.hdr.u.result = 0
+data->comm.hdr.num_parms = 2
+data->comm.hdr.type_size = 2
+data->comm.hdr.type_offset = 28
+data->comm.hdr.parm_size = 8
+data->comm.hdr.parm_offset = 30
+daveti: Sending back ---------------------
+daveti: Into while(data->comm.buf)
+daveti: Into recv_from_socket() with size [28]
+daveti: Into while(recv_total<size) with recv_total [0]
+daveti: total_recv_size 33, buf_size 1024, recd_so_far 28
+daveti: Into recv_from_socket() with size [5]
+daveti: Into while(recv_total<size) with recv_total [0]
+daveti: rx'd a packet
+daveti: Platform header ---------------------
+data->comm.buf_size = 1024
+sizeof(data->comm.hdr) = 28
+data->comm.hdr.packet_size = 33
+data->comm.hdr.u.ordinal = 2
+data->comm.hdr.num_parms = 1
+data->comm.hdr.type_size = 1
+data->comm.hdr.type_offset = 28
+data->comm.hdr.parm_size = 4
+data->comm.hdr.parm_offset = 29
+daveti: Platform header ---------------------
+daveti: Dispatching ordinal 2 (CloseContext)
+TCSD TCS Accepted CloseContext operation from dyna6-62.cs.uoregon.edu
+daveti: Sending back ---------------------
+send_size = 28
+sizeof(data->comm.hdr) = 28
+data->comm.hdr.packet_size = 28
+data->comm.hdr.u.result = 0
+data->comm.hdr.num_parms = 0
+data->comm.hdr.type_size = 0
+data->comm.hdr.type_offset = 0
+data->comm.hdr.parm_size = 0
+data->comm.hdr.parm_offset = 0
+daveti: Sending back ---------------------
+daveti: Into while(data->comm.buf)
+daveti: Into recv_from_socket() with size [28]
+daveti: Into while(recv_total<size) with recv_total [0]
+daveti: recv error happens with recv_size [0]
+daveti: socket connection closed?
+daveti: recv_from_socket() failure
+daveti: thread running exiting....
+
+
